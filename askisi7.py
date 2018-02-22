@@ -1,9 +1,24 @@
 import datetime
 today = datetime.date.today()
-today_str= today.strftime("%d-%m-%Y")
-print "Simerini imerominia:",today_str
-print "-------------------------------"
 dayofcurrentweek = today.isoweekday()
+today_str= today.strftime("%d-%m-%Y")
+if (dayofcurrentweek==1):
+    imera="Deftera"
+elif (dayofcurrentweek==2):
+    imera="Triti"
+elif (dayofcurrentweek==3):
+    imera="Tetarti"
+elif (dayofcurrentweek==4):
+    imera="Pempti"
+elif (dayofcurrentweek==5):
+    imera="Paraskevi"
+elif (dayofcurrentweek==6):
+    imera="Savvato"
+else:imera="Kiriaki"
+
+print "Simerini imerominia:",imera ,today_str
+print "-------------------------------"
+
 def add_years(day, years):
     try:
         return day.replace(year = day.year + years)
@@ -18,7 +33,7 @@ for i in range (1,11):
         if count==1:
             print "Idies imerominies\n-----------------"
         nextyear= nextyear.strftime("%d-%m-%Y")
-        print nextyear
+        print imera, nextyear
 if count > 0:
     print "-----------------\n"
     print "Sinolo:",count
