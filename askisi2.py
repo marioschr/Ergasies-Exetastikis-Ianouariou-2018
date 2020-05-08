@@ -8,7 +8,7 @@ table_save_days=[]
 table_save_wins=[]
 
 
-# elegxos twn ari8mwn tou xristi an iparxoun stous kliroteous ari8mous
+# Έλεγχος των αριθμών του χρήστη αν υπάρχουν στους κληρωτέους αριθμούς
 def compare_lists(l1,l2):
     s=0
     for i in l1:
@@ -16,7 +16,7 @@ def compare_lists(l1,l2):
             s+=1
     return s
 
-#ekxwrisi ari8mwn xristi
+# Εκχώρηση αριθμών του χρήστη
 while True:
     print "Diloste 10 ari8mous (1-80):\n"
     print "Paradeigmata eisodou: 1 2 3 4 5 6 7 8 9 10"
@@ -40,7 +40,7 @@ while True:
     if (lathos==1): break
 print 28*"-"
 
-#fortosi kliromenwn ari8mon apo ton OPAP
+# Φόρτωση κληρωμένων αριθμών από τον ΟΠΑΠ
 for i in range(31):
     today= today - datetime.timedelta(days=1)
     date_str= today.strftime("%d-%m-%Y")
@@ -51,18 +51,18 @@ for i in range(31):
     data=json.loads(data)
     klhrwseis= data['draws']['draw']
 
-    #katametrisi epitixiwn ana imerominia
+    # Καταμέτρηση επιτυχιών ανά ημερομηνία
     sum_wins_day=0
     for k in klhrwseis:
         tmp=k["results"]
         epitixies=compare_lists(nums,tmp)
         if (epitixies>4):
             sum_wins_day+=1
-    #apothikefsi
+    # Αποθήκευση
     table_save_wins.insert(i,sum_wins_day)
     table_save_days.insert(i,date_str)
 
-#evresi imerominias me tin megisti epitixia
+# Έυρεση ημερομηνίας με την μέγιστη επιτυχία
 max_wins=table_save_wins[1]
 max_day=table_save_days[1]
 for i in range(31):
@@ -70,7 +70,7 @@ for i in range(31):
         max_wins=table_save_wins[i]
         max_day=table_save_days[i]
 
-#Ektypwsi apotelesmatwn
+# Εκτύπωση αποτελεσμάτων
 print 60*"-"
 print "Me tous arithmous sas:", nums
 print "Tha eixate perissoteres epitixies sto KINO stis", max_day, "me", max_wins, "epitixies!"
