@@ -1,4 +1,4 @@
-from __future__ import print_function #gia na mporoun na typothoun oi charaktires o enas dipla apo ton allo
+from __future__ import print_function # Για να μπορούν να τυπωθούν οι χαρακτήρες ο ένας δίπλα από τον άλλο
 
 def bf(text, left, right, data, index):
     if len(text) == 0: return
