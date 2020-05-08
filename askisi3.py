@@ -1,7 +1,7 @@
 def rot13(metatropi):
     result = ""
 
-    #epanalipsi gia olous tous xaraktires
+    # Επανάληψη για όλους τους χαρακτήρες
     for v in metatropi:
         chartonum = ord(v)
         if chartonum >= ord('a') and chartonum <= ord('z'):
@@ -14,7 +14,7 @@ def rot13(metatropi):
                 chartonum -= 13
             else:
                 chartonum += 13
-        #prosthesi twn grammatwn sto apotelesma
+        # Πρόσθεση γραμμάτων στο αποτέλεσμα
         result += chr(chartonum)
     return result
 
